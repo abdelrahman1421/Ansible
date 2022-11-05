@@ -1,0 +1,18 @@
+<Html>     
+<style>
+Body  
+    {  
+    background-color:rgb(8, 179, 173);
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-size: cover;
+      text-align: center;
+    }  
+</style>  
+</Head>  
+<Body>   
+<h1> Hello from {{ myname }}</h1>
+<h1> The Private IP DNS Name {{ ansible_fqdn }} </h1>
+<h1> The Private IP is {{ ansible_default_ipv4.address }} </h1> 
+</Body>  
+</Html> 

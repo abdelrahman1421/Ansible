@@ -1,0 +1,19 @@
+---
+# tasks file for roles/nginx
+- name: Install Nginx
+  yum:
+    name: "{{ nginx_pak }}"
+    state: present
+
+- name: Copy HTML Page
+  template:
+    src: index.html.j2
+    dest: "{{ html_dir }}/index.html"
+    mode: u+rwx
+  notify: Restart Nginx Service
+
+- name: Start Service
+  ansible.builtin.systemd:
+    state: started
+    name: "{{ nginx_svc }}"
+    enabled: yes
