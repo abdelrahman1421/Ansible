@@ -1,0 +1,8 @@
+---
+# vars file for roles/mariaDB
+pak:
+  - mariadb-server
+  - python3-PyMySQL
+mariadb_svc: mariadb
+admin: true
+conf_file_url: "https://drive.google.com/uc?export=download&id=1QIeumZzk1_PL6pVf699ff8iurEnuwk7y"

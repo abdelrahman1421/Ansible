@@ -1,0 +1,29 @@
+---
+# tasks file for roles/mariaDB
+- name: install mariadb
+  yum:
+    name: "{{ pak }}"
+    state: latest
+
+- name: start mariadb
+  service:
+    name: "{{ mariadb_svc }}"
+    enabled: true
+    state: started
+  notify: start mariadb
+
+- name: mysql_root_password
+  mysql_user:
+    login_user: "{{ username }}"
+    login_password: "{{ passwd }}"
+    user: "{{ new_user }}"
+    check_implicit_admin: "{{ admin }}"
+    password: "{{ passwd }}"
+    host: localhost
+
+- name: install configuration file
+  get_url:
+    url: "{{conf_file_url}}"
+    dest: /var/lib/mysql/
+  notify: start mariadb
+

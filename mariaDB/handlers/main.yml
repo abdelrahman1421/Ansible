@@ -1,0 +1,8 @@
+---
+# handlers file for roles/mariaDB
+- name: start mariadb
+  ansible.builtin.systemd:
+    name: mariadb
+    state: started
+    enabled: yes
+    
