@@ -1,0 +1,16 @@
+---
+- name: Nginx Role
+  hosts: servers
+  gather_facts: yes
+  roles:
+    - nginx
+
+- name: Jenkins Role
+  hosts: servers
+  gather_facts: no
+  roles:
+    - jenkins
+
+
+
+  
