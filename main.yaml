@@ -4,13 +4,24 @@
   gather_facts: yes
   roles:
     - nginx
+    
+---
 
 - name: Jenkins Role
   hosts: servers
   gather_facts: no
   roles:
     - jenkins
-
+    
+ ---
+ 
+- name: MariaDB Role
+  hosts: servers
+  vars_files:
+    - mariaDB/vars/secrets.yml
+  gather_facts: no
+  roles:
+    - mariaDB
 
 
   
